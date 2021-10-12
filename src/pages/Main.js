@@ -1,23 +1,24 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import Total from '../components/Total';
+import Country from '../components/Country';
 
 const Main = ({ data }) => {
   const { countries, todayConfirmed } = data;
   let list = [];
   if (countries) {
     list = countries.map((country) => (
-      <li key={country.id}>
-        {country.name}
-        {' '}
-        {country.today_confirmed}
-      </li>
+      <Country key={country.id} name={country.name} cases={country.today_confirmed} />
     ));
   }
 
   return (
-    <div>
-      {todayConfirmed}
-      <ul>{list}</ul>
+    <div className="px-1">
+      <Total total={todayConfirmed} />
+      <h7>Stats by Country</h7>
+      <ul className="d-flex flex-row flex-wrap w-100 px-0">
+        {list}
+      </ul>
     </div>
   );
 };
