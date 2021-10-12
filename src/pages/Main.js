@@ -1,29 +1,50 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContries } from '../redux/countries/countries';
+import { Dropdown } from 'react-bootstrap';
+import Total from '../components/Total';
+import Country from '../components/Country';
+import { getContries, filterCountries } from '../redux/countries/countries';
 
 const Main = () => {
   const dispatch = useDispatch();
-  const countries = useSelector((state) => state.contriesReducer.countries);
-
+  const data = useSelector((state) => state.countriesReducer);
   useEffect(() => {
     dispatch(getContries());
   }, []);
+
+  const { countries, todayConfirmed } = data;
   let list = [];
   if (countries) {
     list = countries.map((country) => (
-      <li key={country.id}>
-        {country.name}
-        {' '}
-        {country.today_confirmed}
-      </li>
+      <Country key={country.name} country={country} />
     ));
   }
+
+  const handleClick = (e) => {
+    dispatch(filterCountries(e, countries, todayConfirmed));
+  };
+
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const buttonList = letters.split('').map((letter) => <Dropdown.Item key={letter} eventKey={letter}>{letter}</Dropdown.Item>);
   return (
-    <div>
-      <ul>{list}</ul>
-    </div>
+    <section className="px-1">
+      <Total name="World" total={todayConfirmed} filter={handleClick} />
+      <div>
+        <h6>Stats by Country</h6>
+        <Dropdown onSelect={handleClick}>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Filter
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            {buttonList}
+          </Dropdown.Menu>
+        </Dropdown>
+        <ul className="d-flex flex-row flex-wrap w-100 px-0">
+          {list}
+        </ul>
+      </div>
+    </section>
   );
 };
 
