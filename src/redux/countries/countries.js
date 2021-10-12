@@ -20,13 +20,12 @@ export const getContries = () => async (dispatch) => {
   });
 };
 
-export const getCountry = (name) => async (dispatch) => {
-  axios.get(`https://api.covid19tracking.narrativa.com/api/${today}/country/${name}`).then((response) => {
+export const getCountry = (id) => async (dispatch) => {
+  axios.get(`https://api.covid19tracking.narrativa.com/api/${today}/country/${id}`).then((response) => {
     const { dates } = response.data;
     const { countries } = dates[`${today}`];
-    const { regions: entries } = countries[`${name}`];
-    const regions = Object.values(entries);
-    dispatch({ type: GET_DETAILS, regions });
+    const country = countries[Object.keys(countries)[0]];
+    dispatch({ type: GET_DETAILS, country });
   });
 };
 
@@ -35,7 +34,7 @@ const reducer = (state = {}, action) => {
     case GET_CONTRIES:
       return { ...action.result };
     case GET_DETAILS:
-      return { ...state, ...action.regions };
+      return { ...action.country };
     default:
       return state;
   }

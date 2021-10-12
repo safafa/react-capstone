@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 
 const Country = ({ country }) => {
-  const page = `/details/${country.name}`;
+  const page = `/details/${country.id}`;
   return (
     <Card className="w-50">
       <Card.Title>{country.name}</Card.Title>
