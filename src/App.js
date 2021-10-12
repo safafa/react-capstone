@@ -22,7 +22,7 @@ function App() {
       <div>
         <Navbar />
         <Switch>
-          <Route path="/details">
+          <Route path="/details/:name">
             <Details />
           </Route>
           <Route path="/">
