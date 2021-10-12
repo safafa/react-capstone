@@ -26,7 +26,6 @@ const Details = () => {
       </ListGroup.Item>
     ));
   }
-  console.log(country);
   return (
     <div>
       <Total name={country.name} total={country.today_confirmed} />
