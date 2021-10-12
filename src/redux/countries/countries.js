@@ -10,16 +10,19 @@ today = `${yyyy}-${mm}-${dd}`;
 
 export const getContries = () => async (dispatch) => {
   axios.get(`https://api.covid19tracking.narrativa.com/api/${today}`).then((response) => {
-    const { dates } = response.data;
-    const { countries } = dates[`${today}`];
-    dispatch({ type: GET_CONTRIES, countries });
+    const { dates, total } = response.data;
+    const { countries: entries } = dates[`${today}`];
+    const { today_confirmed: todayConfirmed } = total;
+    const countries = Object.values(entries);
+    const result = { countries, todayConfirmed };
+    dispatch({ type: GET_CONTRIES, result });
   });
 };
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case GET_CONTRIES:
-      return { ...action.countries };
+      return { ...action.result };
     default:
       return state;
   }

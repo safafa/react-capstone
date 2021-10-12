@@ -1,19 +1,28 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContries } from './redux/contries/contries';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Main from './pages/Main';
+import Details from './pages/Details';
 
 function App() {
-  const dispatch = useDispatch();
-  const contries = useSelector((state) => state.contriesReducer);
-
-  useEffect(() => {
-    dispatch(getContries());
-  }, []);
-
   return (
-    <div className="App">
-      <p>{contries}</p>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route path="/details">
+            <Details />
+          </Route>
+          <Route path="/">
+            <Main />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
