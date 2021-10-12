@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const GET_CONTRIES = 'covide/redux/GET_CONTRIES';
+const GET_DETAILS = 'covide/redux/GET_DETAILS';
 
 let today = new Date();
 const dd = String(today.getDate()).padStart(2, '0');
@@ -19,10 +20,22 @@ export const getContries = () => async (dispatch) => {
   });
 };
 
+export const getCountry = (name) => async (dispatch) => {
+  axios.get(`https://api.covid19tracking.narrativa.com/api/${today}/country/${name}`).then((response) => {
+    const { dates } = response.data;
+    const { countries } = dates[`${today}`];
+    const { regions: entries } = countries[`${name}`];
+    const regions = Object.values(entries);
+    dispatch({ type: GET_DETAILS, regions });
+  });
+};
+
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case GET_CONTRIES:
       return { ...action.result };
+    case GET_DETAILS:
+      return { ...state, ...action.regions };
     default:
       return state;
   }

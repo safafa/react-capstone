@@ -8,13 +8,13 @@ const Main = ({ data }) => {
   let list = [];
   if (countries) {
     list = countries.map((country) => (
-      <Country key={country.id} name={country.name} cases={country.today_confirmed} />
+      <Country key={country.id} country={country} />
     ));
   }
 
   return (
     <div className="px-1">
-      <Total total={todayConfirmed} />
+      <Total name="World" total={todayConfirmed} />
       <h7>Stats by Country</h7>
       <ul className="d-flex flex-row flex-wrap w-100 px-0">
         {list}

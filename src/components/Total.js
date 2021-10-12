@@ -2,8 +2,9 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-const Total = ({ total }) => (
+const Total = ({ name, total }) => (
   <Card>
+    <Card.Title>{name}</Card.Title>
     <Card.Body>
       <Card.Text>
         {total}

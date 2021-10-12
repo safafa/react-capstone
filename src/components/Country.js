@@ -2,14 +2,15 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-const Country = ({ name, cases }) => (
+const Country = ({ country }) => (
   <Card className="w-50">
-    <Card.Title>{name}</Card.Title>
+    <Card.Title>{country.name}</Card.Title>
     <Card.Body>
       <Card.Text>
-        {cases}
+        {country.today_confirmed}
       </Card.Text>
     </Card.Body>
+    <Card.Link href="/details">Details</Card.Link>
   </Card>
 );
 
