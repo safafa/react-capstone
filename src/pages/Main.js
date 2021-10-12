@@ -1,15 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContries } from '../redux/countries/countries';
+import React from 'react';
 
-const Main = () => {
-  const dispatch = useDispatch();
-  const countries = useSelector((state) => state.contriesReducer.countries);
-
-  useEffect(() => {
-    dispatch(getContries());
-  }, []);
+const Main = ({ data }) => {
+  const { countries, todayConfirmed } = data;
   let list = [];
   if (countries) {
     list = countries.map((country) => (
@@ -20,8 +13,10 @@ const Main = () => {
       </li>
     ));
   }
+
   return (
     <div>
+      {todayConfirmed}
       <ul>{list}</ul>
     </div>
   );

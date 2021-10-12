@@ -1,11 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { BsFillMicFill, BsFillGearFill } from 'react-icons/bs';
 
 const Navbar = () => (
-  <nav className="navbar d-flex bg-white">
+  <nav className="navbar d-flex mx-2 bg-white">
     <a href="/">Covid stats</a>
     <NavLink to="/" exact>Countries</NavLink>
-    <NavLink to="/details">Details</NavLink>
+    <span>
+      <BsFillMicFill />
+      <BsFillGearFill />
+    </span>
   </nav>
 );
 
