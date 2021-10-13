@@ -8,10 +8,10 @@ const Country = ({ country }) => {
   const page = `/details/${country.id}`;
   return (
     <a className="w-50 text-decoration-none link-dark text-center text-light" href={page}>
-      <Card className="bg-pink border-0">
+      <Card className="bg-pink border-0 m-1 cardo">
         <div className="d-flex justify-content-between align-items-center px-3 pt-2">
-          <Card.Title>{country.name}</Card.Title>
-          <BsArrowRightCircle />
+          <Card.Title className="title-f">{country.name}</Card.Title>
+          <BsArrowRightCircle className="arrow" />
         </div>
         <Card.Body>
           <Card.Text>
