@@ -5,6 +5,7 @@ import { Dropdown } from 'react-bootstrap';
 import Total from '../components/Total';
 import Country from '../components/Country';
 import { getContries, filterCountries } from '../redux/countries/countries';
+import '../css/Main.css';
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -25,18 +26,17 @@ const Main = () => {
     dispatch(filterCountries(e));
   };
 
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const buttonList = letters.split('').map((letter) => <Dropdown.Item key={letter} eventKey={letter}>{letter}</Dropdown.Item>);
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWYZ';
+  const buttonList = letters.split('').map((letter) => <Dropdown.Item className="text-center" key={letter} eventKey={letter}>{letter}</Dropdown.Item>);
   return (
     <section className="px-1">
       <Total name="World" total={todayConfirmed} filter={handleClick} />
       <div>
-        <h6>Stats by Country</h6>
         <Dropdown onSelect={handleClick}>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
+          <Dropdown.Toggle className="filter-button border-0 w-100" id="dropdown-basic">
             Filter
           </Dropdown.Toggle>
-          <Dropdown.Menu>
+          <Dropdown.Menu className="w-100">
             {buttonList}
           </Dropdown.Menu>
         </Dropdown>

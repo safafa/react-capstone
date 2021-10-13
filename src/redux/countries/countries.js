@@ -33,7 +33,6 @@ export const getCountry = (id) => async (dispatch) => {
 export const filterCountries = (letter) => async (dispatch) => {
   axios.get(`https://api.covid19tracking.narrativa.com/api/${today}`).then((response) => {
     const { dates, total } = response.data;
-    console.log(letter);
     const { countries: entries } = dates[`${today}`];
     const { today_confirmed: todayConfirmed } = total;
     const countries = Object.values(entries);
