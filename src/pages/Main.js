@@ -22,7 +22,7 @@ const Main = () => {
   }
 
   const handleClick = (e) => {
-    dispatch(filterCountries(e, countries, todayConfirmed));
+    dispatch(filterCountries(e));
   };
 
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
