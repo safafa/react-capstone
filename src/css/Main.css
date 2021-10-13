@@ -6,8 +6,8 @@
   background-color: #df4783;
 }
 
-.show > .btn-primary.dropdown-toggle, 
-.show > .btn-primary.dropdown-toggle:focus, 
+.show > .btn-primary.dropdown-toggle,
+.show > .btn-primary.dropdown-toggle:focus,
 .btn-primary:focus {
   background-color: #cf4278;
   box-shadow: 0 0 0 0 #cf4278;
