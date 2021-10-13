@@ -31,7 +31,7 @@ const Main = () => {
     <>
       <Navbar title="World stats" />
       <section className="px-1">
-        <Total name="World" total={todayConfirmed} filter={handleClick} />
+        <Total name="World" total={todayConfirmed} />
         <div>
           <Filter handleSelect={handleClick} />
           <ul className="d-flex flex-row flex-wrap w-100 px-0">
