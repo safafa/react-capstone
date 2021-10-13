@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ListGroup } from 'react-bootstrap';
 import { getCountry } from '../redux/countries/countries';
+import Navbar from '../components/Navbar';
 import Total from '../components/Total';
+import '../css/Details.css';
 
 const Details = () => {
   const { id } = useParams();
@@ -27,26 +29,27 @@ const Details = () => {
     ));
   }
   return (
-    <div>
-      <Total name={country.name} total={country.today_confirmed} />
-      <ListGroup>
-        <ListGroup.Item>
-          <span className="me-3">Date:</span>
-          {country.date}
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <span className="me-3">Today deaths:</span>
-          {country.today_deaths}
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <span className="me-3">Yesterday recovered:</span>
-          {country.yesterday_recovered}
-        </ListGroup.Item>
-      </ListGroup>
-      <ListGroup>
-        {regions}
-      </ListGroup>
-    </div>
+    <>
+      <Navbar title="Details" />
+      <section>
+        <Total name={country.name} total={country.today_confirmed} />
+        <ListGroup as="ul" className="mt-3">
+          <ListGroup.Item>
+            <span className="me-3 title-f">Date:</span>
+            {country.date}
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span className="me-3 title-f">Today deaths:</span>
+            {country.today_deaths}
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span className="me-3 title-f">Yesterday recovered:</span>
+            {country.yesterday_recovered}
+          </ListGroup.Item>
+          {regions}
+        </ListGroup>
+      </section>
+    </>
   );
 };
 
