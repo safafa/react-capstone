@@ -29,7 +29,7 @@ const Main = () => {
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWYZ';
   const buttonList = letters.split('').map((letter) => <Dropdown.Item className="text-center" key={letter} eventKey={letter}>{letter}</Dropdown.Item>);
   return (
-    <section className="px-1">
+    <section className="px-1 bg-pink">
       <Total name="World" total={todayConfirmed} filter={handleClick} />
       <div>
         <Dropdown onSelect={handleClick}>
