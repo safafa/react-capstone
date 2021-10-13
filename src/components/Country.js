@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 const Country = ({ country }) => {
   const page = `/details/${country.id}`;
   return (
-    <a className="w-50 text-decoration-none link-dark" href={page}>
+    <a className="w-50 text-decoration-none link-dark text-center" href={page}>
       <Card>
         <Card.Title>{country.name}</Card.Title>
         <Card.Body>
