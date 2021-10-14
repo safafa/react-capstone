@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { Dropdown } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const Filter = ({ handleSelect }) => {
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWYZ';
@@ -14,6 +14,10 @@ const Filter = ({ handleSelect }) => {
       </Dropdown.Menu>
     </Dropdown>
   );
+};
+
+Filter.propTypes = {
+  handleSelect: PropTypes.func.isRequired,
 };
 
 export default Filter;

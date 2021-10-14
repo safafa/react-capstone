@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { BsArrowRightCircle } from 'react-icons/bs';
