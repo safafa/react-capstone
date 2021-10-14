@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
