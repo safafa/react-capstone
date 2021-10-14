@@ -1,5 +1,5 @@
 # Covid19 stats
-The web provide the user with daily information about covid spread around the world. The information are filtered by country. the user can get more details about the Country by clicking on it.
+The web provides the user with daily information about covid spread around the world. The information is filtered by country. the user can get more details about the Country by clicking on it. 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ![image](https://user-images.githubusercontent.com/43698511/137317616-82f7e1a9-fc8c-44d4-a030-6d13d6166edb.png)
