@@ -30,7 +30,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 
 ## Live Demo
-[Live Demo](https://wonderful-turing-57b85e.netlify.app/)
+[Live Demo](https://loving-thompson-320b37.netlify.app/)
 
 ## Author
 
