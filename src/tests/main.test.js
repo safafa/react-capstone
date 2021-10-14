@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import renderer from 'react-test-renderer';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Main from '../pages/Main';
