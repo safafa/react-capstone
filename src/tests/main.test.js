@@ -1,4 +1,5 @@
 import renderer from 'react-test-renderer';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Main from '../pages/Main';
 
 const mockDispatch = jest.fn();
@@ -7,13 +8,13 @@ jest.mock('react-redux', () => ({
     countries: [{
       id: 'test1',
       regions: [],
-      name: 'test',
+      name: 'Maroc',
       date: 'test',
     },
     {
       id: 'test2',
       regions: [],
-      name: 'test',
+      name: 'Canada',
       date: 'test',
     },
     ],
@@ -27,13 +28,13 @@ jest.mock('../redux/countries/countries', () => ({
     countries: [{
       id: 'test1',
       regions: [],
-      name: 'test',
+      name: 'Maroc',
       date: 'test',
     },
     {
       id: 'test2',
       regions: [],
-      name: 'test',
+      name: 'Canada',
       date: 'test',
     },
     ],
@@ -48,5 +49,18 @@ describe('Main page', () => {
     )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  test('UI test', () => {
+    render(<Main />);
+    screen.queryAllByRole('link').forEach((role) => expect(role).toBeInTheDocument());
+  });
+
+  test('Fire filter event', () => {
+    render(<Main />);
+    fireEvent.select(screen.getByRole('button'), {
+      target: { eventKey: 'M' },
+    });
+    !expect(screen.getByText(/Canada/)).toBeInTheDocument();
   });
 });

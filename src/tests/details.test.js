@@ -1,4 +1,5 @@
 import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 import Details from '../pages/Details';
 
 jest.mock('react-router-dom', () => ({
@@ -36,5 +37,10 @@ describe('Detail page', () => {
     )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  test('UI test', () => {
+    render(<Details />);
+    expect(screen.getByRole('list')).toBeInTheDocument();
   });
 });
