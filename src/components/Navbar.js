@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BsFillMicFill, BsFillGearFill } from 'react-icons/bs';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
@@ -16,5 +16,9 @@ const Navbar = ({ title }) => (
     </span>
   </nav>
 );
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Navbar;
