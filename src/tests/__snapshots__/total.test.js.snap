@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Total component Snapshot test 1`] = `
+<div
+  className="text-center pt-3 bg-pink text-light border-0 my-1 card"
+>
+  <div
+    className="title-f card-title h5"
+  >
+    World
+  </div>
+  <div
+    className="card-body"
+  >
+    <p
+      className="card-text"
+    >
+      12234
+    </p>
+  </div>
+</div>
+`;
