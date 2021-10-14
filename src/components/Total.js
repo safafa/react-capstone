@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 
 const Total = ({ name, total }) => (
@@ -12,5 +12,10 @@ const Total = ({ name, total }) => (
     </Card.Body>
   </Card>
 );
+
+Total.propTypes = {
+  name: PropTypes.string.isRequired,
+  total: PropTypes.string.isRequired,
+};
 
 export default Total;
