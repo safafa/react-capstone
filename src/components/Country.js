@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { BsArrowRightCircle } from 'react-icons/bs';
 import '../css/country.css';
@@ -23,4 +24,11 @@ const Country = ({ country }) => {
   );
 };
 
+Country.propTypes = {
+  country: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    today_confirmed: PropTypes.string.isRequired,
+  }).isRequired,
+};
 export default Country;
