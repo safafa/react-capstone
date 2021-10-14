@@ -25,9 +25,17 @@ const Country = ({ country }) => {
 
 Country.propTypes = {
   country: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    today_confirmed: PropTypes.string.isRequired,
-  }).isRequired,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    today_confirmed: PropTypes.string,
+  }),
+};
+
+Country.defaultProps = {
+  country: {
+    id: 'name',
+    name: 'name',
+    today_confirmed: '0',
+  },
 };
 export default Country;

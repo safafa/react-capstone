@@ -14,8 +14,12 @@ const Total = ({ name, total }) => (
 );
 
 Total.propTypes = {
-  name: PropTypes.string.isRequired,
-  total: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  total: PropTypes.string,
+};
+Total.defaultProps = {
+  name: 'name',
+  total: '0',
 };
 
 export default Total;
