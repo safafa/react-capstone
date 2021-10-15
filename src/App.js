@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-// eslint-disable-next-line import/no-named-as-default
 import Main from './pages/Main';
 import Details from './pages/Details';
 import './App.css';
