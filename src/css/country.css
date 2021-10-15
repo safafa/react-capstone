@@ -1,0 +1,11 @@
+.bg-pink {
+  background-color: #dc4782;
+}
+
+.card {
+  height: 9rem;
+}
+
+.cardo:hover {
+  background-color: #cf4278;
+}

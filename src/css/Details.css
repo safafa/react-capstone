@@ -1,0 +1,8 @@
+.list-group-item {
+  background-color: #cf4278;
+  color: white;
+}
+
+.list-group-item:nth-of-type(odd) {
+  background-color: #dc4782;
+}
